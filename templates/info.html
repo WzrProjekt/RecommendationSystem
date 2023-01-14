@@ -1,0 +1,16 @@
+{% extends 'index.html' %} {% block title %}Informacje{% endblock %}
+{% block content %}
+<div class="card" style="width: 38rem;">
+  <div class="card-body">
+    <h5 class="card-title">Informacje</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Działanie</h6>
+    <p class="card-text">Strona przedstawia program, w którym po wpisaniu tytułu filmu wyświetla się nam rekomendacja najbardziej podobnych 4 tytułów.</p>
+    <h6 class="card-subtitle mb-2 text-muted">Użyta technologia</h6>
+    <p class="card-text">Strona została napisana w bibliotece Flask z dodatkiem biblioteki CSS Bootstrap 5. Algorytm
+    uczący i dający rekomendacje filmów został napisany w języku Python z dodatkiem biblioteki Pandas, Numpy i Sklearn. Baza danych
+    została zaimportowana do pliku CSV.</p>
+    <h6 class="card-subtitle mb-2 text-muted">Autorzy</h6>
+    <p class="card-text">Autorami projektu są: Piotr Kapusta, Jakub Kułak i Eryk Kulengowski.</p>
+  </div>
+</div>
+{% endblock %}

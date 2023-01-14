@@ -1,0 +1,93 @@
+{% extends 'index.html' %} {% block title %}Wyszukiwanie filmu{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-3">
+        <div class="card text-left" style="width: 20rem;">
+            <h4 class="card title">Rekomendacje podobnych filmów dla: </h4>
+            <h5 class="card-title"> {{ name[:-5].capitalize() }} </h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ name[-4:].capitalize() }}</h6>
+        </div>
+        <div class="card text-left" style="width: 20rem;">
+          <img src="https://thumbs.dreamstime.com/b/d-ludzie-m%C4%99%C5%BCczyzna-ludzie-my%C5%9Ble%C4%87-z-czerwonymi-znakami-zapytania-nad-jego-przewodzi-29885706.jpg" class="card-img-top"
+               alt="brak obrazka">
+          <div class="card-body">
+            <h5 class="card-title">Podaj tytuł filmu</h5>
+              <div class="form-group">
+                  <form action ="#" method="post">
+                      <p><input type="text" class="typeahead" data-provide="typeahead" autocomplete="off" name="nm" value="{{ name }}" placeholder="Podaj tytuł i rok"></p>
+                      <p><input type="submit" value="Wyszukaj"></p>
+                  </form>
+              </div>
+          </div>
+        </div>
+    </div>
+    <div class="col-2">
+        <div class="card text-left" style="width: 15rem;">
+          <img src="{{ mov_att[2][0] }}" class="card-img-top"
+               alt="brak obrazka">
+          <div class="card-body">
+              <h5 class="card-title">{{ mov_att[0][0][:-5].capitalize()}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{ mov_att[0][0][-4:] }}</h6>
+              <h6 class="card-title">{{ mov_att[1][0] }}</h6>
+          </div>
+        </div>
+    </div>
+    <div class="col-2">
+       <div class="card text-left" style="width: 15rem;">
+          <img src="{{ mov_att[2][1] }}" class="card-img-top"
+               alt="brak obrazka">
+          <div class="card-body">
+              <h5 class="card-title">{{ mov_att[0][1][:-5].capitalize()}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{ mov_att[0][1][-4:] }}</h6>
+              <h6 class="card-title">{{ mov_att[1][1] }}</h6>
+          </div>
+        </div>
+    </div>
+    <div class="col-2">
+        <div class="card text-left" style="width: 15rem;">
+          <img src="{{ mov_att[2][2] }}" class="card-img-top"
+               alt="brak obrazka">
+          <div class="card-body">
+              <h5 class="card-title">{{ mov_att[0][2][:-5].capitalize()}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{ mov_att[0][2][-4:] }}</h6>
+              <h6 class="card-title">{{ mov_att[1][2] }}</h6>
+          </div>
+        </div>
+    </div>
+    <div class="col-2">
+        <div class="card text-left" style="width: 15rem;">
+          <img src="{{ mov_att[2][3] }}" class="card-img-top" alt="...">
+          <div class="card-body">
+              <h5 class="card-title">{{ mov_att[0][3][:-5].capitalize()}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{ mov_att[0][3][-4:] }}</h6>
+              <h6 class="card-title">{{ mov_att[1][3] }}</h6>
+          </div>
+        </div>
+    </div>
+</div>
+<script>
+        // Initializes  input( name of states)
+        // with a typeahead
+        var $input = $(".typeahead");
+        var labels = {{ mov_list|tojson}};
+        $input.typeahead({
+            source: labels,
+            autoSelect: true,
+        });
+
+        $input.change(function () {
+            var current = $input.typeahead("getActive");
+            matches = [];
+
+            if (current) {
+
+                // Some item from your input matches
+                // with entered data
+                if (current.name == $input.val()) {
+                    matches.push(current.name);
+                }
+            }
+        });
+</script>
+{% endblock %}
+
