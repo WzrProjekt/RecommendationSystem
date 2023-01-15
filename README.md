@@ -18,7 +18,7 @@ Przykładowe wyszukiwania filmów
 
 Przykład danych surowych (przed obróbką)
 
-
+![image](https://user-images.githubusercontent.com/122667171/212541728-8c9cf166-0212-4e04-9a7c-b67b07ad71cf.png)
 
 Przykład danych po obróbce (ostatnie kolumny to tytuł z rokiem produkcji, opis i link do plakatu)
 
